@@ -31,9 +31,28 @@
   <name>Feathers</name>
 
   <build>
-    <sourceDirectory>source</sourceDirectory>
+      <sourceDirectory>source</sourceDirectory>
+      <resources>
+          <resource>
+              <directory>themes/MetalWorksMobileTheme/assets</directory></resource>
+      </resources>
 
-    <plugins>
+      <plugins>
+          <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>build-helper-maven-plugin</artifactId>
+              <executions>
+                  <execution>
+                      <phase>generate-sources</phase>
+                      <goals><goal>add-source</goal></goals>
+                      <configuration>
+                          <sources>
+                              <source>themes/MetalWorksMobileTheme/source</source>
+                          </sources>
+                      </configuration>
+                  </execution>
+              </executions>
+          </plugin>
         <plugin>
             <groupId>net.flexmojos.oss</groupId>
             <artifactId>flexmojos-maven-plugin</artifactId>
